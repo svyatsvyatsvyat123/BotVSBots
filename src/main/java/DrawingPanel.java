@@ -1,22 +1,18 @@
 import java.awt.*;
-import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-
-// bots panel
-// fon panel
-// wires panel
-// resources panel
+import javax.swing.*;
 
 public class DrawingPanel extends JPanel {
-    private final Image botImage;
+    private BufferedImage botImage;
     private final Server server;
+
 
     Color[] colors;
 
-    final double tileSize = 16;
+    final int tileSize = 16;
     final int width;
     final int height;
 
@@ -37,7 +33,6 @@ public class DrawingPanel extends JPanel {
 //        AffineTransform newTransform=new AffineTransform();
 //        newTransform.rotate(angle,tileSize / 2,tileSize / 2);
 
-//        g.setColor(colors[bot.uid.team]);
         g.rotate(-angle, tileSize * bot.pos.x + tileSize / 2, tileSize * bot.pos.y + tileSize / 2);
         g.drawImage(botImage, (int) tileSize * bot.pos.x, (int) tileSize * bot.pos.y, (int) tileSize, (int) tileSize, this);
 //        g.setTransform(oldTransform);
